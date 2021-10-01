@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "938806541137",
+    "firebase_url": "https://ecoturistapema-default-rtdb.firebaseio.com",
+    "project_id": "ecoturistapema",
+    "storage_bucket": "ecoturistapema.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:938806541137:android:283b07d87b7b0b51e9b170",
+        "android_client_info": {
+          "package_name": "com.guia_de_ecoturismo_de_itapema"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "938806541137-t6j7dn6i07njq32her04mr5t7des9rti.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBe_xbRepwrxOv2wUvESUG2Ic2rq3zSIj4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "938806541137-t6j7dn6i07njq32her04mr5t7des9rti.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
