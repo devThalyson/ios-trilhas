@@ -18,11 +18,12 @@ class _SplashViewState extends State<SplashView> {
   void initState() {
     super.initState();
 
-    if (Platform.isIOS) {
+    /*   if (Platform.isIOS) {
       SystemChrome.setEnabledSystemUIMode(
         SystemUiMode.immersiveSticky,
       );
-    } else {
+    } */
+    if (Platform.isAndroid) {
       SystemChrome.setEnabledSystemUIMode(
         SystemUiMode.immersive,
       );
@@ -51,20 +52,20 @@ class _SplashViewState extends State<SplashView> {
         SystemUiMode.manual,
         overlays: SystemUiOverlay.values,
       );
-    }
 
-    SystemChrome.setSystemUIOverlayStyle(
-      SystemUiOverlayStyle(
-        statusBarColor: HSLColor.fromColor(AppColors.primaryColor)
-            .withLightness(0.4)
-            .toColor(),
-        statusBarBrightness: Brightness.light,
-        statusBarIconBrightness: Brightness.light,
-        systemNavigationBarColor: Colors.transparent,
-        systemNavigationBarDividerColor: Colors.transparent,
-        systemNavigationBarIconBrightness: Brightness.dark,
-      ),
-    );
+      SystemChrome.setSystemUIOverlayStyle(
+        SystemUiOverlayStyle(
+          statusBarColor: HSLColor.fromColor(AppColors.primaryColor)
+              .withLightness(0.4)
+              .toColor(),
+          statusBarBrightness: Brightness.light,
+          statusBarIconBrightness: Brightness.light,
+          systemNavigationBarColor: Colors.transparent,
+          systemNavigationBarDividerColor: Colors.transparent,
+          systemNavigationBarIconBrightness: Brightness.dark,
+        ),
+      );
+    }
   }
 
   @override
