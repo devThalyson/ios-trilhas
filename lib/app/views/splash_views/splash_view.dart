@@ -18,11 +18,12 @@ class _SplashViewState extends State<SplashView> {
   void initState() {
     super.initState();
 
-    /*   if (Platform.isIOS) {
+    if (Platform.isIOS) {
       SystemChrome.setEnabledSystemUIMode(
-        SystemUiMode.immersiveSticky,
+        SystemUiMode.manual,
+        overlays: [],
       );
-    } */
+    }
     if (Platform.isAndroid) {
       SystemChrome.setEnabledSystemUIMode(
         SystemUiMode.immersive,
