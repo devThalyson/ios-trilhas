@@ -168,7 +168,7 @@ class PasswordRecoveryView extends StatelessWidget {
           Spacer(),
           Container(
             decoration: BoxDecoration(
-              color: Theme.of(context).accentColor,
+              color: AppColors.accentColor,
               borderRadius: BorderRadius.circular(18),
             ),
             height: 15.15.h,

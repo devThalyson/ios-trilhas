@@ -69,53 +69,51 @@ class _UserHomeViewState extends State<UserHomeView>
   }
 
   _body() {
-    return SafeArea(
-      child: Container(
-        child: Stack(
-          children: [
-            Observer(
-              builder: (_) {
-                return CustomLogoBar(
-                  resize: _controllerView.logoBarResize,
-                );
-              },
-            ),
-            Observer(
-              builder: (_) {
-                return AnimatedContainer(
-                  curve: Curves.easeOutSine,
-                  duration: Duration(
-                    milliseconds: 700,
-                  ),
-                  margin: EdgeInsets.only(
-                    top: _controllerView.logoBarResize ? 10.h : 25.h,
-                  ),
-                  child: CustomScaffoldBody(
-                    bottomMargin: 0,
-                    leftMargin: 0,
-                    rightMargin: 0,
-                    topMargin: 0,
-                    children: [
-                      FadeTransition(
-                          opacity: _controllerView.segmentIndex == 0
-                              ? _animation1!
-                              : _animation2!,
-                          child: _controllerView.segmentIndex == 0
-                              ? LoginView()
-                              : SignUpView()),
-                    ],
-                  ),
-                );
-              },
-            ),
-            Positioned(
-              child: _segment(context),
-              top: 87.h,
-              left: 14.5.w,
-              right: 14.5.w,
-            ),
-          ],
-        ),
+    return Container(
+      child: Stack(
+        children: [
+          Observer(
+            builder: (_) {
+              return CustomLogoBar(
+                resize: _controllerView.logoBarResize,
+              );
+            },
+          ),
+          Observer(
+            builder: (_) {
+              return AnimatedContainer(
+                curve: Curves.easeOutSine,
+                duration: Duration(
+                  milliseconds: 700,
+                ),
+                margin: EdgeInsets.only(
+                  top: _controllerView.logoBarResize ? 14.h : 30.h,
+                ),
+                child: CustomScaffoldBody(
+                  bottomMargin: 0,
+                  leftMargin: 0,
+                  rightMargin: 0,
+                  topMargin: 0,
+                  children: [
+                    FadeTransition(
+                        opacity: _controllerView.segmentIndex == 0
+                            ? _animation1!
+                            : _animation2!,
+                        child: _controllerView.segmentIndex == 0
+                            ? LoginView()
+                            : SignUpView()),
+                  ],
+                ),
+              );
+            },
+          ),
+          Positioned(
+            child: _segment(context),
+            top: 92.h,
+            left: 14.5.w,
+            right: 14.5.w,
+          ),
+        ],
       ),
     );
   }
@@ -128,7 +126,7 @@ class _UserHomeViewState extends State<UserHomeView>
             borderRadius: BorderRadius.circular(
               10,
             ),
-            color: Theme.of(context).accentColor,
+            color: AppColors.accentColor,
 
             // Box Shadow here
             boxShadow: [
@@ -185,7 +183,7 @@ class _UserHomeViewState extends State<UserHomeView>
               );
             },
             groupValue: _controllerView.segmentIndex,
-            backgroundColor: Theme.of(context).accentColor,
+            backgroundColor: AppColors.accentColor,
           ),
         );
       },
