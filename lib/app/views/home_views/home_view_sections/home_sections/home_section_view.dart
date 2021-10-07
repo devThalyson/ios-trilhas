@@ -47,28 +47,29 @@ class _HomeSectionViewState extends State<HomeSectionView> {
   }
 
   _body() {
-    return SafeArea(
-      child: SingleChildScrollView(
-        child: Column(
-          children: [
-            _weatherCard(),
-            SizedBox(
-              height: 3.06.h,
-            ),
-            _qrCodeCard(),
-            SizedBox(
-              height: 3.06.h,
-            ),
-            _navigationCards(),
-            SizedBox(
-              height: 3.06.h,
-            ),
-            _partnersCard(),
-            SizedBox(
-              height: 3.06.h,
-            ),
-          ],
-        ),
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          SizedBox(
+            height: 3.5.h,
+          ),
+          _weatherCard(),
+          SizedBox(
+            height: 3.06.h,
+          ),
+          _qrCodeCard(),
+          SizedBox(
+            height: 3.06.h,
+          ),
+          _navigationCards(),
+          SizedBox(
+            height: 3.06.h,
+          ),
+          _partnersCard(),
+          SizedBox(
+            height: 3.06.h,
+          ),
+        ],
       ),
     );
   }

@@ -33,67 +33,65 @@ class _AboutAppViewState extends State<AboutAppView> {
   _body() {
     return Container(
       margin: EdgeInsets.only(
-        top: 2.96.h,
+        top: 7.h,
       ),
-      child: SafeArea(
-        child: Column(
-          children: [
-            Flexible(
-              child: CustomScaffoldBody(
-                topMargin: 0,
-                bottomMargin: 0,
-                leftMargin: 0,
-                rightMargin: 0,
-                children: [
-                  Container(
-                    margin: EdgeInsets.only(
-                      top: 3.8.h,
-                      bottom: 2.h,
-                    ),
-                    child: CustomAppBar(title: 'Sobre'),
+      child: Column(
+        children: [
+          Flexible(
+            child: CustomScaffoldBody(
+              topMargin: 0,
+              bottomMargin: 0,
+              leftMargin: 0,
+              rightMargin: 0,
+              children: [
+                Container(
+                  margin: EdgeInsets.only(
+                    top: 3.8.h,
+                    bottom: 2.h,
                   ),
-                  Container(
-                      alignment: Alignment.center,
-                      margin: EdgeInsets.only(
-                        left: 6.93.w,
-                        right: 6.93.w,
-                      ),
-                      child: Observer(
-                        builder: (_) {
-                          return _controllerView.getAboutProgress
-                              ? CustomProgressIndicator(
-                                  color: Theme.of(context).primaryColor,
-                                )
-                              : Column(
-                                  children: [
-                                    Column(
-                                      children: [
-                                        CustomText(
-                                          texto:
-                                              '''${_controllerView.about!.text}''',
-                                          textAlign: TextAlign.justify,
-                                          cor: AppColors.grey,
+                  child: CustomAppBar(title: 'Sobre'),
+                ),
+                Container(
+                    alignment: Alignment.center,
+                    margin: EdgeInsets.only(
+                      left: 6.93.w,
+                      right: 6.93.w,
+                    ),
+                    child: Observer(
+                      builder: (_) {
+                        return _controllerView.getAboutProgress
+                            ? CustomProgressIndicator(
+                                color: Theme.of(context).primaryColor,
+                              )
+                            : Column(
+                                children: [
+                                  Column(
+                                    children: [
+                                      CustomText(
+                                        texto:
+                                            '''${_controllerView.about!.text}''',
+                                        textAlign: TextAlign.justify,
+                                        cor: AppColors.grey,
+                                      ),
+                                      Container(
+                                        margin:
+                                            EdgeInsets.symmetric(vertical: 50),
+                                        alignment: Alignment.center,
+                                        child: CachedNetworkImage(
+                                          imageUrl:
+                                              _controllerView.about!.image!,
                                         ),
-                                        Container(
-                                          margin: EdgeInsets.symmetric(
-                                              vertical: 50),
-                                          alignment: Alignment.center,
-                                          child: CachedNetworkImage(
-                                            imageUrl:
-                                                _controllerView.about!.image!,
-                                          ),
-                                        )
-                                      ],
-                                    ),
-                                  ],
-                                );
-                        },
-                      )),
-                ],
-              ),
+                                      )
+                                    ],
+                                  ),
+                                ],
+                              );
+                      },
+                    )),
+              ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

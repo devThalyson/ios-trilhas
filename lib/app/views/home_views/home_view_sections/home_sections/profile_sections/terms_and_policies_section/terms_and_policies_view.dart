@@ -37,69 +37,67 @@ class _TermsAndPoliciesViewState extends State<TermsAndPoliciesView> {
   _body() {
     return Container(
       margin: EdgeInsets.only(
-        top: 2.96.h,
+        top: 7.h,
       ),
-      child: SafeArea(
-        child: CustomScaffoldBody(
-          topMargin: 0,
-          bottomMargin: 0,
-          leftMargin: 0,
-          rightMargin: 0,
-          children: [
-            Container(
-              margin: EdgeInsets.only(
-                top: 3.8.h,
-              ),
-              child: CustomAppBar(title: 'Termos e políticas'),
+      child: CustomScaffoldBody(
+        topMargin: 0,
+        bottomMargin: 0,
+        leftMargin: 0,
+        rightMargin: 0,
+        children: [
+          Container(
+            margin: EdgeInsets.only(
+              top: 3.8.h,
             ),
-            Observer(
-              builder: (_) {
-                return _controllerView.getTermsProgress
-                    ? CustomProgressIndicator(
-                        color: Theme.of(context).primaryColor,
-                      )
-                    : ListView.builder(
-                        physics: NeverScrollableScrollPhysics(),
-                        shrinkWrap: true,
-                        itemBuilder: (_, index) {
-                          Term term = _controllerView.terms[index];
-                          return Container(
-                            alignment: Alignment.center,
-                            margin: EdgeInsets.only(
-                              top: 3.h,
+            child: CustomAppBar(title: 'Termos e políticas'),
+          ),
+          Observer(
+            builder: (_) {
+              return _controllerView.getTermsProgress
+                  ? CustomProgressIndicator(
+                      color: Theme.of(context).primaryColor,
+                    )
+                  : ListView.builder(
+                      physics: NeverScrollableScrollPhysics(),
+                      shrinkWrap: true,
+                      itemBuilder: (_, index) {
+                        Term term = _controllerView.terms[index];
+                        return Container(
+                          alignment: Alignment.center,
+                          margin: EdgeInsets.only(
+                            top: 3.h,
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 25,
                             ),
-                            child: Padding(
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: 25,
-                              ),
-                              child: SingleChildScrollView(
-                                child: Column(
-                                  children: [
-                                    Divider(
-                                      indent: 1,
-                                      height: 1,
-                                      color: Color(0xFFd8d8d8),
-                                    ),
-                                    CustomExpansionTile(
-                                      title: term.title!,
-                                      content: term.body!,
-                                    ),
-                                    Divider(
-                                      height: 1,
-                                      color: Color(0xFFd8d8d8),
-                                    ),
-                                  ],
-                                ),
+                            child: SingleChildScrollView(
+                              child: Column(
+                                children: [
+                                  Divider(
+                                    indent: 1,
+                                    height: 1,
+                                    color: Color(0xFFd8d8d8),
+                                  ),
+                                  CustomExpansionTile(
+                                    title: term.title!,
+                                    content: term.body!,
+                                  ),
+                                  Divider(
+                                    height: 1,
+                                    color: Color(0xFFd8d8d8),
+                                  ),
+                                ],
                               ),
                             ),
-                          );
-                        },
-                        itemCount: _controllerView.terms.length,
-                      );
-              },
-            ),
-          ],
-        ),
+                          ),
+                        );
+                      },
+                      itemCount: _controllerView.terms.length,
+                    );
+            },
+          ),
+        ],
       ),
     );
   }

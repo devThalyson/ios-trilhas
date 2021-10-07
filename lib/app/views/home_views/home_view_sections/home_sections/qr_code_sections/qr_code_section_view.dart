@@ -36,61 +36,59 @@ class _QrCodeSectionViewState extends State<QrCodeSectionView> {
   _body(BuildContext context) {
     return Container(
       margin: EdgeInsets.only(
-        top: 2.96.h,
+        top: 7.h,
       ),
-      child: SafeArea(
-        child: Column(
-          children: [
-            Flexible(
-              child: CustomScaffoldBody(
-                topMargin: 0,
-                bottomMargin: 0,
-                leftMargin: 0,
-                rightMargin: 0,
-                children: [
-                  Container(
-                    margin: EdgeInsets.only(
-                      top: 3.8.h,
-                    ),
-                    child: CustomAppBar(title: 'QR Code'),
+      child: Column(
+        children: [
+          Flexible(
+            child: CustomScaffoldBody(
+              topMargin: 0,
+              bottomMargin: 0,
+              leftMargin: 0,
+              rightMargin: 0,
+              children: [
+                Container(
+                  margin: EdgeInsets.only(
+                    top: 3.8.h,
                   ),
-                  Container(
-                    margin: EdgeInsets.only(
-                      left: 14.3.w,
-                      right: 14.3.w,
-                      top: 1.97.h,
-                    ),
-                    alignment: Alignment.center,
-                    child: CustomText(
-                      texto:
-                          'Centralize o QR CODE na tela do seu aparelho para ser redirecionado',
-                      textAlign: TextAlign.center,
-                      tamanhoFonte: 12.sp,
-                    ),
+                  child: CustomAppBar(title: 'QR Code'),
+                ),
+                Container(
+                  margin: EdgeInsets.only(
+                    left: 14.3.w,
+                    right: 14.3.w,
+                    top: 1.97.h,
                   ),
-                  SizedBox(
-                    height: 4.19.h,
+                  alignment: Alignment.center,
+                  child: CustomText(
+                    texto:
+                        'Centralize o QR CODE na tela do seu aparelho para ser redirecionado',
+                    textAlign: TextAlign.center,
+                    tamanhoFonte: 12.sp,
                   ),
-                  Container(
-                    width: 100.w,
-                    height: 74.4.h,
-                    child: QRView(
-                      key: _controllerView.qrKey,
-                      onQRViewCreated: _controllerView.changeQrViewController,
-                      overlay: QrScannerOverlayShape(
-                        borderColor: Theme.of(context).primaryColor,
-                        cutOutSize: 80.w,
-                        borderWidth: 10.sp,
-                        borderLength: 10.sp,
-                        borderRadius: 10,
-                      ),
+                ),
+                SizedBox(
+                  height: 4.19.h,
+                ),
+                Container(
+                  width: 100.w,
+                  height: 71.5.h,
+                  child: QRView(
+                    key: _controllerView.qrKey,
+                    onQRViewCreated: _controllerView.changeQrViewController,
+                    overlay: QrScannerOverlayShape(
+                      borderColor: Theme.of(context).primaryColor,
+                      cutOutSize: 80.w,
+                      borderWidth: 10.sp,
+                      borderLength: 10.sp,
+                      borderRadius: 10,
                     ),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

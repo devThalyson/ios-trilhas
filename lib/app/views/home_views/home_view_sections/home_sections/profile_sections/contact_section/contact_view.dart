@@ -28,122 +28,120 @@ class ContactView extends StatelessWidget {
   _body(BuildContext context, bool isKeyBoardVisible) {
     return Container(
       margin: EdgeInsets.only(
-        top: 2.96.h,
+        top: 7.h,
       ),
-      child: SafeArea(
-        child: CustomScaffoldBody(
-          topMargin: 0,
-          bottomMargin: 0,
-          leftMargin: 0,
-          rightMargin: 0,
-          children: [
-            Container(
-              margin: EdgeInsets.only(
-                top: 3.8.h,
-              ),
-              child: CustomAppBar(title: 'Contato'),
+      child: CustomScaffoldBody(
+        topMargin: 0,
+        bottomMargin: 0,
+        leftMargin: 0,
+        rightMargin: 0,
+        children: [
+          Container(
+            margin: EdgeInsets.only(
+              top: 3.8.h,
             ),
-            Container(
-              alignment: Alignment.center,
-              margin: EdgeInsets.only(
-                left: 6.93.w,
-                right: 6.93.w,
-                top: 2.h,
-              ),
-              child: Column(
-                children: [
-                  SizedBox(
-                    width: double.infinity,
-                    child: CustomText(
-                      texto: 'Fale Conosco',
-                      textAlign: TextAlign.left,
-                      cor: Colors.black,
-                      tamanhoFonte: 18,
-                    ),
-                  ),
-                  SizedBox(height: 8),
-                  CustomText(
-                    texto: '''Duvidas, sugestões ou reclamações?
-Entre em contato e retornaremos pelo e-mail informado!''',
+            child: CustomAppBar(title: 'Contato'),
+          ),
+          Container(
+            alignment: Alignment.center,
+            margin: EdgeInsets.only(
+              left: 6.93.w,
+              right: 6.93.w,
+              top: 2.h,
+            ),
+            child: Column(
+              children: [
+                SizedBox(
+                  width: double.infinity,
+                  child: CustomText(
+                    texto: 'Fale Conosco',
                     textAlign: TextAlign.left,
-                    cor: AppColors.grey,
+                    cor: Colors.black,
+                    tamanhoFonte: 18,
                   ),
-                  SizedBox(height: 26),
-                  CustomTextForm(
-                    nomeCampo: 'Mensagem',
-                    textColor: AppColors.lightGrey,
-                    activeTextColor: AppColors.darkBrown,
-                    borderColor: AppColors.lightGrey,
-                    activeBorderColor: AppColors.lightBrown,
-                    labelTextColor: AppColors.lightGrey,
-                    activeLabelTextColor: AppColors.lightBrown,
-                    fillColor: Colors.white,
-                    acaoTeclado: TextInputAction.done,
-                    tipoTeclado: TextInputType.multiline,
-                    controller: _controllerView.contactTextForm,
-                    maxLines: 8,
-                  ),
-                  Observer(
-                    builder: (_) {
-                      return Visibility(
-                        visible:
-                            _controllerView.sendEmailValidateMensage.isNotEmpty,
-                        child: Container(
-                          width: 90.w,
-                          height: 3.h,
-                          alignment: Alignment.center,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.only(
-                              bottomLeft: Radius.circular(10),
-                              bottomRight: Radius.circular(10),
-                            ),
-                            color: Colors.red.withOpacity(
-                              0.3,
-                            ),
+                ),
+                SizedBox(height: 8),
+                CustomText(
+                  texto: '''Duvidas, sugestões ou reclamações?
+Entre em contato e retornaremos pelo e-mail informado!''',
+                  textAlign: TextAlign.left,
+                  cor: AppColors.grey,
+                ),
+                SizedBox(height: 26),
+                CustomTextForm(
+                  nomeCampo: 'Mensagem',
+                  textColor: AppColors.lightGrey,
+                  activeTextColor: AppColors.darkBrown,
+                  borderColor: AppColors.lightGrey,
+                  activeBorderColor: AppColors.lightBrown,
+                  labelTextColor: AppColors.lightGrey,
+                  activeLabelTextColor: AppColors.lightBrown,
+                  fillColor: Colors.white,
+                  acaoTeclado: TextInputAction.done,
+                  tipoTeclado: TextInputType.multiline,
+                  controller: _controllerView.contactTextForm,
+                  maxLines: 8,
+                ),
+                Observer(
+                  builder: (_) {
+                    return Visibility(
+                      visible:
+                          _controllerView.sendEmailValidateMensage.isNotEmpty,
+                      child: Container(
+                        width: 90.w,
+                        height: 3.h,
+                        alignment: Alignment.center,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.only(
+                            bottomLeft: Radius.circular(10),
+                            bottomRight: Radius.circular(10),
                           ),
-                          child: CustomText(
-                            texto: _controllerView.sendEmailValidateMensage,
-                            cor: Colors.red,
-                            tamanhoFonte: 10.sp,
+                          color: Colors.red.withOpacity(
+                            0.3,
                           ),
                         ),
-                      );
-                    },
+                        child: CustomText(
+                          texto: _controllerView.sendEmailValidateMensage,
+                          cor: Colors.red,
+                          tamanhoFonte: 10.sp,
+                        ),
+                      ),
+                    );
+                  },
+                ),
+                isKeyBoardVisible
+                    ? SizedBox(
+                        height: 3.31.h,
+                      )
+                    : SizedBox(height: 20.h),
+                Observer(
+                  builder: (_) {
+                    return CustomButton(
+                      progress: _controllerView.sendEmailProgress,
+                      width: 70.w,
+                      title: 'Continuar',
+                      function: () {
+                        _sendEmail(context);
+                      },
+                    );
+                  },
+                ),
+                SizedBox(height: 2.21.h),
+                Visibility(
+                  child: CustomText(
+                    texto:
+                        'Tocando em "Continuar" você será redirecionado para seu aplicativo de e-mail com sua mensagem pronta, bastará tocar no botão "enviar" lá mesmo.',
+                    tamanhoFonte: 10.sp,
+                    cor: AppColors.lightGrey,
+                    textAlign: TextAlign.center,
                   ),
-                  isKeyBoardVisible
-                      ? SizedBox(
-                          height: 3.31.h,
-                        )
-                      : SizedBox(height: 20.h),
-                  Observer(
-                    builder: (_) {
-                      return CustomButton(
-                        progress: _controllerView.sendEmailProgress,
-                        width: 70.w,
-                        title: 'Continuar',
-                        function: () {
-                          _sendEmail(context);
-                        },
-                      );
-                    },
-                  ),
-                  SizedBox(height: 2.21.h),
-                  Visibility(
-                    child: CustomText(
-                      texto:
-                          'Tocando em "Continuar" você será redirecionado para seu aplicativo de e-mail com sua mensagem pronta, bastará tocar no botão "enviar" lá mesmo.',
-                      tamanhoFonte: 10.sp,
-                      cor: AppColors.lightGrey,
-                      textAlign: TextAlign.center,
-                    ),
-                    visible: !isKeyBoardVisible,
-                  ),
-                  SizedBox(height: 1.h),
-                ],
-              ),
+                  visible: !isKeyBoardVisible,
+                ),
+                SizedBox(height: 1.h),
+              ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
