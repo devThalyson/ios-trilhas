@@ -584,7 +584,15 @@ class TourismItemView extends StatelessWidget {
           SizedBox(width: 3.20.w),
           InkWell(
             onTap: () {
-              launch('https://api.whatsapp.com/send?phone=${tourism.whatsapp}',
+              String whatsapp = '';
+              if (tourism.whatsapp != null) {
+                whatsapp = tourism.whatsapp!
+                    .replaceAll('(', '')
+                    .replaceAll(')', '')
+                    .replaceAll('-', '')
+                    .replaceAll(' ', '');
+              }
+              launch('https://api.whatsapp.com/send?phone=$whatsapp',
                   forceSafariVC: true);
             },
             child: Container(
