@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
@@ -27,10 +29,15 @@ class CustomLogoBar extends StatelessWidget {
               duration: Duration(
                 milliseconds: 700,
               ),
-              margin: EdgeInsets.only(
-                top: resize ? 5.5.h : 9.h,
-                bottom: resize ? 7.h : 9.h,
-              ),
+              margin: !Platform.isIOS
+                  ? EdgeInsets.only(
+                      top: resize ? 5.5.h : 9.h,
+                      bottom: resize ? 7.h : 9.h,
+                    )
+                  : EdgeInsets.only(
+                      top: resize ? 3.5.h : 5.h,
+                      bottom: resize ? 7.h : 9.h,
+                    ),
               width: resize ? 40.w : 70.w,
               height: resize ? 6.5.h : 17.h,
               child: Image.asset(

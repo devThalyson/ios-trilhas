@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:app_trilhas/app/controllers/user_controllers/user_home_view_controllers/user_home_view.controller.dart';
 import 'package:app_trilhas/app/views/user_views/login_view/login_view.dart';
 import 'package:app_trilhas/app/views/user_views/sign_up_view/sign_up_view.dart';
@@ -87,7 +89,13 @@ class _UserHomeViewState extends State<UserHomeView>
                   milliseconds: 700,
                 ),
                 margin: EdgeInsets.only(
-                  top: _controllerView.logoBarResize ? 14.h : 30.h,
+                  top: _controllerView.logoBarResize
+                      ? Platform.isIOS
+                          ? 13.h
+                          : 14.h
+                      : Platform.isIOS
+                          ? 25.h
+                          : 30.h,
                 ),
                 child: CustomScaffoldBody(
                   bottomMargin: 0,
@@ -109,7 +117,7 @@ class _UserHomeViewState extends State<UserHomeView>
           ),
           Positioned(
             child: _segment(context),
-            top: 92.h,
+            top: Platform.isIOS ? 89.h : 92.h,
             left: 14.5.w,
             right: 14.5.w,
           ),
