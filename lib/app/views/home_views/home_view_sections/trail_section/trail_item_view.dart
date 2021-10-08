@@ -709,7 +709,8 @@ class TrailItemView extends StatelessWidget {
           SizedBox(width: 3.20.w),
           InkWell(
             onTap: () {
-              launch('https://api.whatsapp.com/send?phone=${trail.whatsapp}');
+              launch('https://api.whatsapp.com/send?phone=${trail.whatsapp}',
+                  forceSafariVC: true);
             },
             child: Container(
               width: 20.17.w,

@@ -35,7 +35,7 @@ class CustomLogoBar extends StatelessWidget {
                       bottom: resize ? 7.h : 9.h,
                     )
                   : EdgeInsets.only(
-                      top: resize ? 3.5.h : 5.h,
+                      top: resize ? 4.5.h : 5.h,
                       bottom: resize ? 7.h : 9.h,
                     ),
               width: resize ? 40.w : 70.w,

@@ -36,8 +36,12 @@
 	<string>593684714961750</string>
 	<key>FacebookDisplayName</key>
 	<string>Guia de Ecoturismo de Itapema</string>
+	<key>LSApplicationCategoryType</key>
+ 		<string></string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
+		<string>https</string>
+  	<string>http</string>
 		<string>whatsapp</string>
 		<string>googlegmail</string>
 		<string>x-dispatch</string>
@@ -51,8 +55,6 @@
 		<string>fb-messenger-share-api</string>
 		<string>fbauth2</string>
 		<string>fbshareextension</string>
-		<string>https</string>
-  		<string>http</string>
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
