@@ -81,49 +81,8 @@ class _SplashViewState extends State<SplashView> {
     return Container(
       width: 100.w,
       height: 100.h,
-      child: Stack(
-        children: [
-          Image.asset(
-            'assets/images/background_splash_image.png',
-            width: 100.w,
-            fit: BoxFit.cover,
-          ),
-          Container(
-            width: 100.w,
-            height: 100.h,
-            color: Colors.black.withOpacity(0.1),
-          ),
-          Container(
-            margin: EdgeInsets.only(
-              bottom: 10.h,
-            ),
-            alignment: Alignment.center,
-            child: Image.asset(
-              'assets/images/Logo Amarela.png',
-              height: 85.w,
-              width: 85.w,
-            ),
-          ),
-          Container(
-            margin: EdgeInsets.only(
-              top: 65.h,
-              left: 10.w,
-              right: 10.w,
-            ),
-            alignment: Alignment.center,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Image.asset(
-                  'assets/images/aAtivo 2.png',
-                ),
-                Image.asset(
-                  'assets/images/Itapema Logo.png',
-                ),
-              ],
-            ),
-          ),
-        ],
+      child: Image.asset(
+        'assets/images/splash-image.png',
       ),
     );
   }
